@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="/static/CSS/style.css" type="text/CSS">
+  <script src="/static/ScriptJS/script.js"></script>
+  <title>Defect Table Form</title>
+</head>
+<body>
+  <div class="editor-wrapper">
+      <div style="margin-bottom: 20px;">
+        <label for="reportTitle" style="display: block; margin-bottom: 8px; font-weight: bold;">Название отчета:
+        <input type="text" id="reportTitle" placeholder="Введите название отчета..." style="width: 100%; max-width: 500px; padding: 10px; font-size: 16px;">
+        <button type="button" class="add-btn" onclick="">Сохранить в PDF</button>
+        </label>
+      </div>
+      
+    <h2>Содержание отчёта</h2>
+    <div class="editor-toolbar">
+      <label for="fontSizeSelect">Размер:</label>
+      <select id="fontSizeSelect" onchange="setFontSize(this.value)">
+        <option value="">--</option>
+        <option value="1">10</option>
+        <option value="2">12</option>
+        <option value="3">14</option>
+        <option value="4">18</option>
+        <option value="5">24</option>
+        <option value="6">32</option>
+        <option value="7">40</option>
+      </select>
+
+      <button onclick="format('bold')"><b>Ж</b></button>
+      <button onclick="format('italic')"><i>К</i></button>
+      <button onclick="format('underline')"><u>Ч</u></button>
+      
+      <label for="fontFamilySelect">Шрифт:</label>
+      <select id="fontFamilySelect" onchange="setFontFamily(this.value)">
+        <option value="">--</option>
+        <option value="Arial">Arial</option>
+        <option value="Calibri">Calibri</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Georgia">Georgia</option>
+      </select>
+
+      <button onclick="format('removeFormat')">✖ Очистить</button>
+      <button onclick="format('insertUnorderedList')">• Список</button>
+      <button onclick="format('insertOrderedList')">1. Список</button>
+      <button onclick="insertLink()">🔗 Ссылка</button>
+
+      <button onclick="alignText('left')">⬅️</button>
+      <button onclick="alignText('center')">↔️</button>
+      <button onclick="alignText('right')">➡️</button>
+    </div>
+
+    <button onclick="toggleEditMode()" id="toggleBtn" style="margin-bottom: 15px; padding: 8px 12px; background: #444; color: white; border: none; border-radius: 4px; cursor: pointer;">✏️ Режим редактирования</button>
+
+    <div id="text-editor" contenteditable="true" class="editor-content">
+      Начните вводить содержание отчёта здесь...
+    </div>
+  </div>
+
+  <h2>Форма таблицы дефектов</h2>
+  <form id="defectForm">
+    <table id="defectTable">
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>Местоположение</th>
+          <th>Описание</th>
+          <th>Категория дефекта по ГОСТ 15467</th>
+          <th>Метод устранения</th>
+          <th>Фотография (Эскиз)</th>
+          <th>Ссылка на метку в туре</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- Строки добавляются динамически -->
+      </tbody>
+    </table>
+    <button type="button" class="add-btn" onclick="addRow()">➕ Добавить строку</button>
+    <button type="button" class="add-btn" onclick="saveTableData()">Сохранить таблицу</button>
+  </form>
+</body>
+</html>

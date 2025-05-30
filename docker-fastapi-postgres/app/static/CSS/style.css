@@ -1,0 +1,250 @@
+body {
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 20px;
+      line-height: 1.5;
+    }
+
+    h2 {
+      color: #fff;
+      margin-top: 0;
+      padding-top: 20px;
+    }
+
+    /* Стили таблицы */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #2a2a2a;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid #444;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #333;
+      position: sticky;
+      top: 0;
+    }
+
+    /* Стили формы */
+    textarea, select, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      background: #111;
+      color: #fff;
+      border: 1px solid #555;
+      border-radius: 5px;
+      resize: vertical;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 80px;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      color: #fff;
+      padding: 8px 0;
+    }
+
+    /* Стили для изображений */
+    .preview-img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: 8px 0;
+    }
+
+    .preview-container {
+      margin-top: 8px;
+    }
+
+    /* Стили кнопок */
+    .add-btn, .remove-btn {
+      margin-top: 10px;
+      padding: 12px 20px;
+      background: #00aa55;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .add-btn:hover, .remove-btn:hover {
+      opacity: 0.9;
+    }
+
+    .remove-btn {
+      background: #aa3333;
+    }
+
+    .link-icon {
+      display: none;
+      width: 20px;
+      height: 20px;
+      margin-left: 8px;
+    }
+
+    /* Редактор текста */
+    .editor-wrapper {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background-color: #2a2a2a;
+    }
+
+    .editor-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+      align-items: center;
+    }
+
+    .editor-toolbar button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .editor-toolbar button:hover {
+      background-color: #666;
+    }
+
+    .editor-toolbar select {
+      width: auto;
+      padding: 6px;
+      margin-right: 10px;
+    }
+
+    .editor-content {
+      min-height: 200px;
+      border: 1px solid #555;
+      padding: 15px;
+      border-radius: 4px;
+      background-color: #1a1a1a;
+      color: #fff;
+      outline: none;
+    }
+
+    /* Адаптивные стили для мобильных */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      .editor-wrapper {
+        padding: 15px;
+      }
+
+      .editor-toolbar {
+        gap: 8px;
+      }
+
+      .editor-toolbar button {
+        padding: 8px;
+        font-size: 16px;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 20px;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 0;
+        background-color: #2a2a2a;
+        overflow: hidden;
+      }
+
+      td {
+        position: relative;
+        padding-left: 40%;
+        padding-right: 15px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #444;
+        box-sizing: border-box;
+      }
+
+      td:last-child {
+        border-bottom: none;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 35%;
+        font-weight: bold;
+        color: #aaa;
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      textarea, select, input[type="text"], input[type="file"] {
+        width: 100%;
+        max-width: 100%;
+        font-size: 16px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .preview-img {
+        height: 120px;
+        max-width: 100%;
+      }
+
+      .add-btn, .remove-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+        margin: 10px 0;
+      }
+
+      td[data-label="Действие"] {
+        padding-left: 15px !important;
+        text-align: center;
+      }
+
+      td[data-label="Действие"]::before {
+        display: none;
+      }
+
+      .link-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
